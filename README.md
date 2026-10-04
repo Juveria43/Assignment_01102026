@@ -202,9 +202,16 @@ The report contains these visuals:
 - Total Customers and Average Sale per Transaction KPI cards
 - Loyalty points distribution by region
 
+**Key insights**
 
- Measures created and calculation 
--  **Total Sales:**   Sum of transaction net amounts
+- Sales are fairly evenly spread across regions, with East leading (~237K) and North lowest (~218K), so no single region dominates revenue.
+- Laptops are the top revenue product (~3.47 lakh), contributing about 45% of the top five products' revenue, followed by Tablets and Monitors.
+- The average sale per transaction is about 1.06K across 76 customers.
+- Monthly sales fluctuate through 2023 and peak around January 2024, which suggests seasonal or promotional spikes worth investigating.
+- About 49% of loyalty points sit under the "Unknown" region, because the customer source has blank or missing regions. This is a data quality   gap to fix at the source.
+
+Measures created and calculation 
+-  **Total Sales:** Sum of transaction net amounts
 -  **Average Sale per Transaction:**  Total sales divided by the distinct transaction count
 -  **Total Loyalty Points:**  Sum of customer loyalty points
 -  **High-Value Transactions:**  Count of transactions where net amount is greater than 1,000
