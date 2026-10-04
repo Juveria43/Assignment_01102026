@@ -243,10 +243,11 @@ The Python sales pipeline writes stage summaries and validation messages to `log
 - In SSIS used checkpoints to restart at task boundaries. Also review of staging and the run-specific error records before resuming after a partial data-flow failure is done.
 
 ## Challenges faced
-1) Scaling up the data using synthetic data generation techniques to ensure adequate data. Initial dataset generated had skewed data, as identified in exploratory data analysis.
-2) Design pattern to ingest data into landing data store. Given the current architectures, where industry is adapting medallion architecture for ELT/ETL workloads - have considered landing the data in ADLS Gen 2.0 - standardize the data to support incremental loads and then ingest into GOLDEN layers (SQL Serve) using SSIS. But, as we have only structured data from JSON's - have moved from this approach and used SQLite to keep the overall execution and costs lightweight.
-3) SSIS setup was the major challenge faced.
-4) As stand alone PBI desktop was used for this project, we have imported data into PBIX and created the report. In ideal production situations - we can have this as composite connection (IMPORT for dimensions and LIVE Query for Sales Fact)
+
+1) Synthetic data quality: The first generated dataset was skewed, which I found during exploratory data analysis. I regenerated the batches from the supplied sample records so the distribution across regions, products and customers was more realistic. I also added a second incremental batch to test inserts, updates and late-arriving transactions.
+2) Choice of landing store: I first considered a medallion design: land the data in ADLS Gen2, standardize it to support incremental loads, then load a gold layer in SQL Server using SSIS. Since all sources are small, structured JSON files, I moved away from that approach and used SQLite for the Python pipeline to keep execution and cost lightweight. A daily publish then loads SQL Server as the shared reporting store.
+3) SSIS setup: SSIS has no native JSON source, so I built the source with a C# Script Component. Changes to its script and output metadata required regenerating the compiled assembly in Visual Studio. I also had to handle machine-specific settings (source file path, checkpoint path, Windows authentication) and make sure rejected customer rows flow to `dbo.ErrorLog` with a run ID.
+4) Power BI connectivity: I used Power BI Desktop standalone, so the data is imported into the PBIX. In production, I would use a composite model: Import mode for dimensions and DirectQuery for the sales fact table.
 
 ## Production improvements
 
