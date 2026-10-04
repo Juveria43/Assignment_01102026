@@ -234,6 +234,14 @@ The Python sales pipeline writes stage summaries and validation messages to `log
 
 <<>TODO: Take PBI Screenshots - add to the path and include here.>
 
+## Error Handling and Logs
+
+- The Python ETL rejects invalid sales rows with reasons, saves them to a run-specific CSV, and records processing errors and stack traces in the [ETL log](logs/etl_pipeline.log).E.g.,  [rejected sales rows](logs/rejected_20260930_140721863.csv).
+- Each database load runs in a transaction; on failure, changes are rolled back and the run is marked failed.
+- SSIS routes invalid customer rows to SQL Server’s `dbo.ErrorLog`, including the run ID, source row, raw record, and rejection reason; package task failures stop the run.
+- SSIS clears staging before a new run and retains error records for 90 days; see the [SQL Server table and retention scripts](sql/04_warehouse_sqlserver.sql).
+- In SSIS used checkpoints to restart at task boundaries. Also review of staging and the run-specific error records before resuming after a partial data-flow failure is done.
+
 ## Challenges faced
 1) Scaling up the data using synthetic data generation techniques to ensure adequate data. Initial dataset generated had skewed data, as identified in exploratory data analysis.
 2) Design pattern to ingest data into landing data store. Given the current architectures, where industry is adapting medallion architecture for ELT/ETL workloads - have considered landing the data in ADLS Gen 2.0 - standardize the data to support incremental loads and then ingest into GOLDEN layers (SQL Serve) using SSIS. But, as we have only structured data from JSON's - have moved from this approach and used SQLite to keep the overall execution and costs lightweight.
