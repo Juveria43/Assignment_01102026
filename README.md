@@ -193,9 +193,9 @@ The sample run reads 105 rows: 24 are rejected (19 invalid emails, 4 negative lo
 
 
 **Part 4: Power BI dashboard**
+![Power BI dashboard](Screenshots/05_powerbi_dashboard.png)
 
 The report contains these visuals:
-
 - Total sales by region
 - Monthly sales trend
 - Top five products by revenue
@@ -208,7 +208,7 @@ The report contains these visuals:
 -  **Average Sale per Transaction:**  Total sales divided by the distinct transaction count
 -  **Total Loyalty Points:**  Sum of customer loyalty points
 -  **High-Value Transactions:**  Count of transactions where net amount is greater than 1,000
--  **Sales YTD:**  Total sales from the start of the year through the selected date |
+-  **Sales YTD:**  Total sales from the start of the year through the selected date
 
 **Part 5: Documentation & Screenshots**
 
