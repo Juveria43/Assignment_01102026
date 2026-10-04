@@ -232,7 +232,6 @@ The Python sales pipeline writes stage summaries and validation messages to `log
 
 ![SSIS SQL verification](Screenshots/03_sql_verification.png)
 
-<<>TODO: Take PBI Screenshots - add to the path and include here.>
 
 ## Error Handling and Logs
 
