@@ -1,0 +1,1796 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts" DTS:refId="Package" DTS:CheckpointFileName="C:\SSISData\LoadCustomers.chk" DTS:CheckpointUsage="1" DTS:CreationDate="10/2/2026 1:51:29 PM" DTS:CreationName="Microsoft.Package" DTS:CreatorComputerName="MADDELAJANAHITH" DTS:CreatorName="MADDELAJANAHITH\janah" DTS:DTSID="{B94DBA4E-8CB8-4F68-94DA-0E686CA5CAC0}" DTS:ExecutableType="Microsoft.Package" DTS:LastModifiedProductVersion="17.0.1016.0" DTS:LocaleID="16393" DTS:ObjectName="Package" DTS:PackageType="5" DTS:SaveCheckpoints="True" DTS:VersionBuild="21" DTS:VersionGUID="{1E37D455-D4BA-4664-8634-CAAB43B7721A}">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager DTS:refId="Package.ConnectionManagers[CustomerDB_Conn]" DTS:CreationName="OLEDB" DTS:DTSID="{C430483E-CFCD-468E-9CAD-4BCCC7E12948}" DTS:ObjectName="CustomerDB_Conn">
+      <DTS:PropertyExpression DTS:Name="InitialCatalog">@[$Project::DatabaseName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression DTS:Name="ServerName">@[$Project::ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager DTS:ConnectRetryCount="1" DTS:ConnectRetryInterval="5" DTS:ConnectionString="Data Source=localhost\SQLEXPRESS01;Initial Catalog=SalesCustomerDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{C430483E-CFCD-468E-9CAD-4BCCC7E12948}localhost\SQLEXPRESS01.SalesCustomerDB;"/>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable DTS:CreationName="" DTS:DTSID="{3C7FEDE7-298A-4CFA-ACD0-3D9564187AAF}" DTS:IncludeInDebugDump="6789" DTS:Namespace="User" DTS:ObjectName="RowsRead">
+      <DTS:VariableValue DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable DTS:CreationName="" DTS:DTSID="{C454BDE0-67E3-4AD8-A4D4-01E837E3A408}" DTS:IncludeInDebugDump="6789" DTS:Namespace="User" DTS:ObjectName="RowsRejected">
+      <DTS:VariableValue DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable DTS:CreationName="" DTS:DTSID="{31474F68-C747-4B27-A83F-7FC9B50B67EE}" DTS:IncludeInDebugDump="6789" DTS:Namespace="User" DTS:ObjectName="RowsValid">
+      <DTS:VariableValue DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable DTS:CreationName="" DTS:DTSID="{0802B9DF-9F3A-4D95-91EC-3B35B913D530}" DTS:EvaluateAsExpression="True" DTS:Expression="@[$Project::SourceFilePath]" DTS:IncludeInDebugDump="2345" DTS:Namespace="User" DTS:ObjectName="SourceFilePath">
+      <DTS:VariableValue DTS:DataType="8">C:\SSISData\customer_data.json</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable DTS:refId="Package\Load Customers Data Flow" DTS:CreationName="Microsoft.Pipeline" DTS:Description="Data Flow Task" DTS:DTSID="{111B4DB4-8330-4223-9628-3080E0C11EE1}" DTS:ExecutableType="Microsoft.Pipeline" DTS:FailPackageOnFailure="True" DTS:LocaleID="-1" DTS:ObjectName="Load Customers Data Flow" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1">
+          <components>
+            <component refId="Package\Load Customers Data Flow\Clean Columns" componentClassID="Microsoft.DerivedColumn" contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column." name="Clean Columns" usesDispositions="true">
+              <inputs>
+                <input refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input]" description="Input to the Derived Column Transformation" name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input].Columns[LoyaltyPoints]" cachedDataType="i8" cachedName="LoyaltyPoints" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPoints]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input].Columns[Region]" cachedDataType="wstr" cachedLength="50" cachedName="Region" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Region]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input].Columns[Email]" cachedDataType="wstr" cachedLength="400" cachedName="Email" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Email]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input].Columns[CustomerName]" cachedDataType="wstr" cachedLength="400" cachedName="CustomerName" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerName]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input].Columns[CustomerID]" cachedCodepage="1252" cachedDataType="str" cachedLength="20" cachedName="CustomerID" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerID]"/>
+                  <inputColumn refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input].Columns[RunID]" cachedDataType="wstr" cachedName="RunID" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RunID]" cachedLength="54"/><inputColumn refId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input].Columns[LoyaltyPointsInvalid]" cachedDataType="bool" cachedName="LoyaltyPointsInvalid" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPointsInvalid]"/></inputColumns>
+                  <externalMetadataColumns/>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output]" description="Default Output of the Derived Column Transformation" exclusionGroup="1" name="Derived Column Output" synchronousInputId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[CustomerID_C]" codePage="1252" dataType="str" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" length="20" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[CustomerID_C]" name="CustomerID_C" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">(DT_STR,20,1252)([ISNULL](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerID]}) ? "" : [TRIM](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerID]}))</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">(DT_STR,20,1252)(ISNULL(CustomerID) ? "" : TRIM(CustomerID))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Name_C]" dataType="wstr" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" length="100" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Name_C]" name="Name_C" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">(DT_WSTR,100)([ISNULL](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerName]}) ? "Unknown" : ([LEN]([TRIM](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerName]})) == 0 ? "Unknown" : [SUBSTRING]([TRIM](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerName]}),1,100)))</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">(DT_WSTR,100)(ISNULL(CustomerName) ? "Unknown" : (LEN(TRIM(CustomerName)) == 0 ? "Unknown" : SUBSTRING(TRIM(CustomerName),1,100)))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]" dataType="wstr" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" length="400" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]" name="Email_C" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">(DT_WSTR,400)([ISNULL](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Email]}) ? "" : [TRIM](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Email]}))</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">(DT_WSTR,400)(ISNULL(Email) ? "" : TRIM(Email))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Region_C]" dataType="wstr" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" length="50" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Region_C]" name="Region_C" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">(DT_WSTR,50)([ISNULL](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Region]}) ? "Unknown" : ([LEN]([TRIM](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Region]})) == 0 ? "Unknown" : [TRIM](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Region]})))</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">(DT_WSTR,50)(ISNULL(Region) ? "Unknown" : (LEN(TRIM(Region)) == 0 ? "Unknown" : TRIM(Region)))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Points_C]" dataType="i8" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Points_C]" name="Points_C" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">[ISNULL](#{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPoints]}) ? (DT_I8)0 : #{Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPoints]}</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">ISNULL(LoyaltyPoints) ? (DT_I8)0 : LoyaltyPoints</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[ETLLoadDate]" dataType="dbTimeStamp" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[ETLLoadDate]" name="ETLLoadDate" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">[GETDATE]()</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+                <output refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Error Output]" description="Error Output of the Derived Column Transformation" exclusionGroup="1" isErrorOut="true" name="Derived Column Error Output" synchronousInputId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2"/>
+                  </outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\Load Customers Data Flow\Count Rows Read" componentClassID="Microsoft.RowCount" contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status." name="Count Rows Read">
+              <properties>
+                <property dataType="System.String" description="Specifies the variable to hold the row count." name="VariableName">User::RowsRead</property>
+              </properties>
+              <inputs>
+                <input refId="Package\Load Customers Data Flow\Count Rows Read.Inputs[Row Count Input 1]" hasSideEffects="true" name="Row Count Input 1">
+                  <externalMetadataColumns/>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\Load Customers Data Flow\Count Rows Read.Outputs[Row Count Output 1]" name="Row Count Output 1" synchronousInputId="Package\Load Customers Data Flow\Count Rows Read.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns/>
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\Load Customers Data Flow\Error Log" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="Error Log" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[ErrorLog]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable"/>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"/>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection refId="Package\Load Customers Data Flow\Error Log.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[CustomerDB_Conn]" connectionManagerRefId="Package.ConnectionManagers[CustomerDB_Conn]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection"/>
+              </connections>
+              <inputs>
+                <input refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].Columns[RawRecord]" cachedDataType="wstr" cachedLength="4000" cachedName="RawRecord" externalMetadataColumnId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[RawRecord]" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RawRecord]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].Columns[CustomerID]" cachedCodepage="1252" cachedDataType="str" cachedLength="20" cachedName="CustomerID" externalMetadataColumnId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerID]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].Columns[SourceRowNum]" cachedDataType="i4" cachedName="SourceRowNum" externalMetadataColumnId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[SourceRowNum]" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[SourceRowNum]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].Columns[RejectReason]" cachedDataType="wstr" cachedLength="50" cachedName="RejectReason" externalMetadataColumnId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]" lineageId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[RejectReason]"/>
+                  <inputColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].Columns[RunID]" cachedDataType="wstr" cachedLength="54" cachedName="RunID" externalMetadataColumnId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[RunID]" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RunID]"/></inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorID]" dataType="i4" name="ErrorID"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]" dataType="wstr" length="100" name="PackageName"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[SourceRowNum]" dataType="i4" name="SourceRowNum"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]" codePage="1252" dataType="str" length="20" name="CustomerID"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]" dataType="wstr" length="200" name="ErrorReason"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[RawRecord]" dataType="wstr" length="4000" name="RawRecord"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[LoggedAt]" dataType="dbTimeStamp2" name="LoggedAt" scale="7"/>
+                  <externalMetadataColumn refId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input].ExternalColumns[RunID]" dataType="wstr" length="54" name="RunID"/></externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\Load Customers Data Flow\Error Log.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Error Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\Load Customers Data Flow\Error Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Error Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\Load Customers Data Flow\Error Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2"/>
+                  </outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\Load Customers Data Flow\Read Customer JSON" componentClassID="Microsoft.ManagedComponentHost" contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;14" description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum." name="Read Customer JSON" version="14">
+              <properties>
+                <property dataType="System.String" description="Stores the source code of the component" isArray="true" name="SourceCode" state="cdata">
+                  <arrayElements arrayElementCount="30">
+                    <arrayElement dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Text;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    private string src;
+    private int pos;
+    private string runId;
+
+    public override void CreateNewOutputRows()
+    {
+        runId = DateTime.UtcNow.ToString("yyyyMMddHHmmssfffffff", CultureInfo.InvariantCulture) + "-" + Guid.NewGuid().ToString("N");
+        var rows = ParseArrayOfObjects(File.ReadAllText(Variables.SourceFilePath));
+
+        string[] dateFormats = { "yyyy-MM-dd", "yyyy/MM/dd", "yyyy-MM-dd'T'HH:mm:ss'Z'" };
+        int n = 0;
+
+        foreach (var r in rows)
+        {
+            n++;
+            Output0Buffer.AddRow();
+            Output0Buffer.SourceRowNum = n;
+            Output0Buffer.RunID = runId;
+
+            string raw = RawOf(r);
+            Output0Buffer.RawRecord = raw.Length > 4000 ? raw.Substring(0, 4000) : raw;
+
+            string s;
+            if ((s = Get(r, "customer_id")) != null) Output0Buffer.CustomerID = s;
+            else Output0Buffer.CustomerID_IsNull = true;
+
+            if ((s = Get(r, "customer_name")) != null) Output0Buffer.CustomerName = s;
+            else Output0Buffer.CustomerName_IsNull = true;
+
+            if ((s = Get(r, "email")) != null) Output0Buffer.Email = s;
+            else Output0Buffer.Email_IsNull = true;
+
+            if ((s = Get(r, "region")) != null) Output0Buffer.Region = s;
+            else Output0Buffer.Region_IsNull = true;
+
+            DateTime dt;
+            if ((s = Get(r, "join_date")) != null &&
+                DateTime.TryParseExact(s, dateFormats, CultureInfo.InvariantCulture,
+                                       DateTimeStyles.None, out dt))
+                Output0Buffer.JoinDate = dt.Date;
+            else
+                Output0Buffer.JoinDate_IsNull = true;
+
+            string loyaltyToken = GetToken(r, "loyalty_points");
+            if (loyaltyToken == null)
+            {
+                Output0Buffer.LoyaltyPoints_IsNull = true; // JSON null is allowed; Derived Column defaults it to 0.
+                Output0Buffer.LoyaltyPointsInvalid = false;
+            }
+            else
+            {
+                string rawNumber = loyaltyToken.StartsWith("N:", StringComparison.Ordinal) ? loyaltyToken.Substring(2) : null;
+                long points;
+                if (rawNumber != null && long.TryParse(rawNumber, NumberStyles.Integer,
+                                                        CultureInfo.InvariantCulture, out points))
+                {
+                    Output0Buffer.LoyaltyPoints = points;
+                    Output0Buffer.LoyaltyPointsInvalid = false;
+                }
+                else
+                {
+                    Output0Buffer.LoyaltyPoints_IsNull = true;
+                    Output0Buffer.LoyaltyPointsInvalid = true;
+                }
+            }
+        }
+    }
+
+    private static string GetToken(Dictionary<string, string> r, string key)
+    {
+        string v;
+        return r.TryGetValue(key, out v) ? v : null;
+    }
+
+    private static string Get(Dictionary<string, string> r, string key)
+    {
+        string v = GetToken(r, key);
+        return v == null ? null : (v.Length >= 2 && v[1] == ':' ? v.Substring(2) : v);
+    }
+
+    private static string RawOf(Dictionary<string, string> r)
+    {
+        var sb = new StringBuilder("{");
+        bool first = true;
+        foreach (var kv in r)
+        {
+            if (!first) sb.Append(", ");
+            first = false;
+            sb.Append('"').Append(kv.Key).Append("\": ");
+            if (kv.Value == null) sb.Append("null");
+            else if (kv.Value.Length >= 2 && (kv.Value[0] == 'N' || kv.Value[0] == 'B' || kv.Value[0] == 'J') && kv.Value[1] == ':')
+                sb.Append(kv.Value.Substring(2));
+            else
+                sb.Append(QuoteJson(kv.Value.Substring(2)));
+        }
+        return sb.Append("}").ToString();
+    }
+
+    private static string QuoteJson(string value)
+    {
+        return "\"" + value.Replace("\\", "\\\\").Replace("\"", "\\\"")
+                     .Replace("\r", "\\r").Replace("\n", "\\n").Replace("\t", "\\t") + "\"";
+    }
+
+    // ---- minimal JSON parser: array of flat objects ----
+    private List<Dictionary<string, string>> ParseArrayOfObjects(string text)
+    {
+        src = text;
+        pos = 0;
+        var list = new List<Dictionary<string, string>>();
+        SkipWs();
+        Expect('[');
+        SkipWs();
+        if (Peek() == ']') { pos++; return list; }
+        while (true)
+        {
+            list.Add(ParseObject());
+            SkipWs();
+            char c = src[pos++];
+            if (c == ',') { SkipWs(); continue; }
+            if (c == ']') break;
+            throw new Exception("Unexpected character in JSON array near position " + pos);
+        }
+        return list;
+    }
+
+    private Dictionary<string, string> ParseObject()
+    {
+        var d = new Dictionary<string, string>();
+        SkipWs();
+        Expect('{');
+        SkipWs();
+        if (Peek() == '}') { pos++; return d; }
+        while (true)
+        {
+            SkipWs();
+            string key = ParseString();
+            SkipWs();
+            Expect(':');
+            SkipWs();
+            d[key] = ParseValue();
+            SkipWs();
+            char c = src[pos++];
+            if (c == ',') continue;
+            if (c == '}') break;
+            throw new Exception("Unexpected character in JSON object near position " + pos);
+        }
+        return d;
+    }
+
+    private string ParseValue()
+    {
+        char c = Peek();
+        if (c == '"') return "S:" + ParseString();
+        if (c == '{' || c == '[')
+        {
+            int start = pos;
+            SkipBalanced();
+            return "J:" + src.Substring(start, pos - start);
+        }
+        int s = pos;
+        while (pos < src.Length && ",}] \t\r\n".IndexOf(src[pos]) < 0) pos++;
+        string tok = src.Substring(s, pos - s);
+        if (tok == "null") return null;
+        if (tok == "true" || tok == "false") return "B:" + tok;
+        return "N:" + tok;
+    }
+
+    private void SkipBalanced()
+    {
+        int depth = 0;
+        do
+        {
+            char c = src[pos];
+            if (c == '"') { ParseString(); continue; }
+            if (c == '{' || c == '[') depth++;
+            else if (c == '}' || c == ']') depth--;
+            pos++;
+        } while (depth > 0);
+    }
+
+    private string ParseString()
+    {
+        Expect('"');
+        var sb = new StringBuilder();
+        while (true)
+        {
+            char c = src[pos++];
+            if (c == '"') break;
+            if (c == '\\')
+            {
+                char e = src[pos++];
+                switch (e)
+                {
+                    case 'n': sb.Append('\n'); break;
+                    case 't': sb.Append('\t'); break;
+                    case 'r': sb.Append('\r'); break;
+                    case 'b': sb.Append('\b'); break;
+                    case 'f': sb.Append('\f'); break;
+                    case 'u':
+                        sb.Append((char)Convert.ToInt32(src.Substring(pos, 4), 16));
+                        pos += 4;
+                        break;
+                    default: sb.Append(e); break;
+                }
+            }
+            else sb.Append(c);
+        }
+        return sb.ToString();
+    }
+
+    private void SkipWs()
+    {
+        while (pos < src.Length && char.IsWhiteSpace(src[pos])) pos++;
+    }
+
+    private char Peek() { return src[pos]; }
+
+    private void Expect(char ch)
+    {
+        if (src[pos] != ch)
+            throw new Exception("Expected '" + ch + "' but found '" + src[pos] + "' at position " + pos);
+        pos++;
+    }
+}]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[SC_b6d757405d594590b636736c7f135ed1.csproj]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{807BAE93-72BE-40D2-BED1-D40B763353EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_b6d757405d594590b636736c7f135ed1</RootNamespace>
+    <AssemblyName>SC_b6d757405d594590b636736c7f135ed1</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC170</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Output0Buffer: ScriptBuffer
+
+{
+    public Output0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String RawRecord
+    {
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool RawRecord_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Int64 LoyaltyPoints
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool LoyaltyPoints_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public DateTime JoinDate
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool JoinDate_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Region
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool Region_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Email
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool Email_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String CustomerName
+    {
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool CustomerName_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String CustomerID
+    {
+        set
+        {
+            this[6] = value;
+        }
+    }
+    public bool CustomerID_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(6);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Int32 SourceRowNum
+    {
+        set
+        {
+            this[7] = value;
+        }
+    }
+    public bool SourceRowNum_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(7);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public void AddRow()
+    {
+        base.AddRow();
+    }
+
+    new public void SetEndOfRowset()
+    {
+        base.SetEndOfRowset();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_b6d757405d594590b636736c7f135ed1.Properties.Settings.get_Default():SC_b6d757405d594590b636736c7f135ed1.Properties.Sett" +
+    "ings")]
+
+namespace SC_b6d757405d594590b636736c7f135ed1.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public Output0Buffer Output0Buffer;
+
+    public virtual void FinishOutputs()
+    {
+    }
+
+    private void MarkOutputsFinished()
+    {
+
+        if (null != Output0Buffer)
+        {
+            Output0Buffer.SetEndOfRowset();
+            Output0Buffer = null;
+        }
+
+    }
+
+    public override void PrimeOutput(int Outputs, int[] OutputIDs, PipelineBuffer[] Buffers, OutputNameMap OutputMap)
+    {
+       for(int Idx = 0; Idx < Outputs; Idx++)
+       {
+            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"Output 0"))
+            {
+                Output0Buffer = new Output0Buffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
+            }
+        }
+
+        CreateNewOutputRows();
+
+        FinishOutputs();
+        MarkOutputsFinished();
+
+    }
+
+    public virtual void CreateNewOutputRows()
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+    public String SourceFilePath
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["SourceFilePath"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_b6d757405d594590b636736c7f135ed1</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_b6d757405d594590b636736c7f135ed1</msb:DisplayName>
+    <msb:ProjectId>{FA7D60F8-FC9A-4FE3-A7FD-96DDBE8C7DAE}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_b6d757405d594590b636736c7f135ed1.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_b6d757405d594590b636736c7f135ed1")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_b6d757405d594590b636736c7f135ed1")]
+[assembly: AssemblyCopyright("Copyright @  2026")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_b6d757405d594590b636736c7f135ed1.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_b6d757405d594590b636736c7f135ed1.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_b6d757405d594590b636736c7f135ed1.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_b6d757405d594590b636736c7f135ed1.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_b6d757405d594590b636736c7f135ed1.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property dataType="System.String" description="Stores the binary representation of the component" isArray="true" name="BinaryCode" state="cdata">
+                  <arrayElements arrayElementCount="2">
+                    <arrayElement dataType="System.String"><![CDATA[SC_b6d757405d594590b636736c7f135ed1.dll]]></arrayElement>
+                    <arrayElement dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAIiYwGoAAAAAAAAAAOAAIiALATAAACYAAAAIAAAAAAAA6kUA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJhFAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA8CUAAAAgAAAAJgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAYAAAAAYAAAAoAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAALgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADM
+RQAAAAAAAEgAAAACAAUASCoAAJgaAAABAAAAAAAAAOBEAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABswBgDoAQAAAQAAEQICewQAAARvKAAABigQAAAKKAQAAAYK
+GY0iAAABJRZyAQAAcKIlF3IXAABwoiUYci0AAHCiCxYMBm8RAAAKDTiHAQAAEgMoEgAACggXWAwC
+ewUAAARvHgAABgJ7BQAABAhvHAAABiUoAwAABhMEAnsFAAAEEQRvEwAACiCgDwAAMAQRBCsNEQQW
+IKAPAABvFAAACm8OAAAGJXJfAABwKAIAAAYlEwUsDwJ7BQAABBEFbxoAAAYrDAJ7BQAABBdvGwAA
+BiVydwAAcCgCAAAGJRMFLA8CewUAAAQRBW8YAAAGKwwCewUAAAQXbxkAAAYlcpMAAHAoAgAABiUT
+BSwPAnsFAAAEEQVvFgAABisMAnsFAAAEF28XAAAGJXKfAABwKAIAAAYlEwUsDwJ7BQAABBEFbxQA
+AAYrDAJ7BQAABBdvFQAABiVyrQAAcCgCAAAGJRMFLCYRBQcoFQAAChYSBigWAAAKLBQCewUAAAQS
+BigXAAAKbxIAAAYrDAJ7BQAABBdvEwAABnLBAABwKAIAAAYlEwUsKhEFIKcAAAAoFQAAChIHKBgA
+AAosFQJ7BQAABBEHKBkAAApqbxAAAAYrDAJ7BQAABBdvEQAABhIDKBoAAAo6bf7//94OEgP+FgIA
+ABtvGwAACtwqQRwAAAIAAAA/AAAAmgEAANkBAAAOAAAAAAAAABMwAwAPAAAAAgAAEQIDEgBvHAAA
+Ci0CFCoGKgAbMAQApQAAAAMAABFy3wAAcHMdAAAKChcLAm8eAAAKDCtlEgIoHwAACg0HLQwGcuMA
+AHBvIAAACiYWCwYfIm8hAAAKEgMoIgAACm8gAAAKcukAAHBvIAAACiYGEgMoIwAACiwYcvEAAHAS
+AygjAAAKcvEAAHAoJAAACisFcvUAAHBvIAAACiYSAiglAAAKLZLeDhIC/hYEAAAbbxsAAArcBnL/
+AABwbyAAAApvJgAACioAAAABEAAAAgAUAHKGAA4AAAAAEzAEAKAAAAAEAAARAgN9AQAABAIWfQIA
+AARzJwAACgoCKAkAAAYCH1soCwAABgIoCQAABgIoCgAABh9dMxACAnsCAAAEF1h9AgAABAYqBgIo
+BQAABm8oAAAKAigJAAAGAnsBAAAEAgJ7AgAABAwIF1h9AgAABAhvKQAACgsHHywzCAIoCQAABivE
+Bx9dLhtyAwEAcAJ8AgAABCgqAAAKKCsAAApzLAAACnoGKhMwBACsAAAABQAAEXMtAAAKCgIoCQAA
+BgIfeygLAAAGAigJAAAGAigKAAAGH30zEAICewIAAAQXWH0CAAAEBioCKAkAAAYCKAgAAAYLAigJ
+AAAGAh86KAsAAAYCKAkAAAYGBwIoBgAABm8uAAAKAigJAAAGAnsBAAAEAgJ7AgAABA0JF1h9AgAA
+BAlvKQAACgwIHywuqggffS4bcmcBAHACfAIAAAQoKgAACigrAAAKcywAAAp6BioTMAQArQAAAAYA
+ABECKAoAAAYKBh8iMwcCKAgAAAYqBh97LgUGH1szIgJ7AgAABA0CKAcAAAYCewEAAAQJAnsCAAAE
+CVlvFAAACioCewIAAAQLKw4CAnsCAAAEF1h9AgAABAJ7AgAABAJ7AQAABG8TAAAKLx5yzQEAcAJ7
+AQAABAJ7AgAABG8pAAAKKC8AAAoWMsECewEAAAQHAnsCAAAEB1lvFAAACgwIcvUAAHAoMAAACi0C
+CCoUKgAAABMwAwBTAAAABwAAERYKAnsBAAAEAnsCAAAEbykAAAoLBx8iMwkCKAgAAAYmKywHH3su
+BQcfWzMGBhdYCisOBx99LgUHH10zBAYXWQoCAnsCAAAEF1h9AgAABAYWMLAqABMwBAAmAQAACAAA
+EQIfIigLAAAGczEAAAoKAnsBAAAEAgJ7AgAABAwIF1h9AgAABAhvKQAACgsHHyI77AAAAAcfXEDX
+AAAAAnsBAAAEAgJ7AgAABAwIF1h9AgAABAhvKQAACg0JH2Y1DwkfYi5UCR9mLlw4mQAAAAkfbi4b
+CR9yWUUEAAAAHgAAAHsAAAAQAAAARwAAACt5Bh8KbyEAAAomOHT///8GHwlvIQAACiY4Zv///wYf
+DW8hAAAKJjhY////Bh5vIQAACiY4S////wYfDG8hAAAKJjg9////BgJ7AQAABAJ7AgAABBpvFAAA
+Ch8QKDIAAArRbyEAAAomAgJ7AgAABBpYfQIAAAQ4Cf///wYJbyEAAAomOPz+//8GB28hAAAKJjjv
+/v//Bm8mAAAKKvIrDgICewIAAAQXWH0CAAAEAnsCAAAEAnsBAAAEbxMAAAovGAJ7AQAABAJ7AgAA
+BG8pAAAKKDMAAAotxypKAnsBAAAEAnsCAAAEbykAAAoqAAATMAUAgAAAAAkAABECewEAAAQCewIA
+AARvKQAACgMuXRyNIgAAASUWct0BAHCiJRcPASg0AAAKoiUYcvMBAHCiJRkCewEAAAQCewIAAARv
+KQAACgoSACg0AAAKoiUacg8CAHCiJRsCfAIAAAQoKgAACqIoNQAACnMsAAAKegICewIAAAQXWH0C
+AAAEKh4CKCEAAAYqKgIDBAUoNgAACiomAhYDKDcAAAoqWgMsCAIWKDgAAAoqci0CAHBzOQAACno6
+AhcDjC4AAAEoNwAACipaAywIAhcoOAAACipyLQIAcHM5AAAKejoCGAOMEQAAASg3AAAKKloDLAgC
+GCg4AAAKKnItAgBwczkAAAp6JgIZAyg3AAAKKloDLAgCGSg4AAAKKnItAgBwczkAAAp6JgIaAyg3
+AAAKKloDLAgCGig4AAAKKnItAgBwczkAAAp6JgIbAyg3AAAKKloDLAgCGyg4AAAKKnItAgBwczkA
+AAp6JgIcAyg3AAAKKloDLAgCHCg4AAAKKnItAgBwczkAAAp6OgIdA4wpAAABKDcAAAoqWgMsCAId
+KDgAAAoqci0CAHBzOQAACnoeAig6AAAKKh4CKDsAAAoqHgIoPAAACip+Aig9AAAKAgJzJgAABn0D
+AAAEAgJzJwAABn0EAAAEKgYqbgJ7BQAABCwSAnsFAAAEbx8AAAYCFH0FAAAEKhMwBQBJAAAACgAA
+ERYKKy4EBpQOBHLKAgBwKD4AAAozGQIFBpoCBAaUKD8AAAoOBHMNAAAGfQUAAAQGF1gKBgMyzgJv
+JQAABgJvIgAABgIoIwAABio6AihAAAAKAgN9BgAABCo6AihAAAAKAgN9BwAABCqWAnsHAAAEb0EA
+AApy3AIAcG9CAAAKKEMAAApvRAAACnQiAAABKh4CKEAAAAoqrn4IAAAELR5y+gIAcNAHAAACKEUA
+AApvRgAACnNHAAAKgAgAAAR+CAAABCoafgkAAAQqHgKACQAABCoafgoAAAQqHgIoSAAACioucy4A
+AAaACgAABCoAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAAVAkAACN+AADACQAA
+FAoAACNTdHJpbmdzAAAAANQTAABsAwAAI1VTAEAXAAAQAAAAI0dVSUQAAABQFwAASAMAACNCbG9i
+AAAAAAAAAAIAAAFXFaIJCQEAAAD6ATMAFgAAAQAAADUAAAAIAAAACgAAAC8AAAAfAAAASAAAABAA
+AAAKAAAABAAAABQAAAAVAAAABQAAAAEAAAAFAAAAAQAAAAAApgQBAAAAAAAGADsDMgcGAM8DMgcG
+AIcCHwcPAKYHAAAGALQC9wUGAB4D9wUGAP8C9wUGALYD9wUGAFsD9wUGAHQD9wUGAMsC9wUGAOYC
+IgQKAI8DmAEGADoAxgAGAHwAxgA7APYGAAAGAI8BkwUGAH8Gigk/APYGAAAGAG0AxgAKAKoGmAEO
+AJsGmAEKAC8GmAEKABMJmAEGAMgIkwUGAGoCHwcGALsGUgcGACMG4gUSADoChgQSAJsChgQSAPsB
+zQUGAE8CMgcGAHkBswAGAEoEkwUGAG8GkwUGAPoH4gUGAE4BkwUGAAkI4gUGAF4EkwUGAEIBkwUG
+AGcAkwUGABkGkwUGAEwJkwUGAGoGkwUGAAkGkwUGAIkAkwUWABEAywYWAAEAywZjALYJAAAWACIA
+ywYGALkBkwUGAFUBkwUGAP0J9wUAAAAAjwAAAAAAAQABAAEAEAC3BQAAEAABAAEAAQAQAI0GAABV
+AAMADQABABAA9QgAAGEAAwAhAAEAEABECAAAZQAGACYAAQAQAPAHAABlAAcAJwAAABAAWQe1B2UA
+CAApAAABEAA7CLUHfQAKAC0AAQDhAM8BAQBQCNIBBgBECNUBBgDwB9kBBgCNBt0BAQADCeEBAQAD
+CeEBEQCrBeUBEQDWAekBEQAyAe0BUCAAAAAAxgCaCAYAAQBgIgAAAACRANYI8QEBAHwiAAAAAJEA
+FAT8AQMAQCMAAAAAgQBmCAYCBADsIwAAAACBAMMIFAIFAKQkAAAAAIEA9wP/AAUAYCUAAAAAgQDp
+AAYABQDAJQAAAACBADwE/wAFAPImAAAAAIEAGAcGAAUALycAAAAAgQCBBB0CBQBEJwAAAACBAM8I
+IQIFANAnAAAAAIYYAQcGAAYA2CcAAAAAhhgBB2sBBgDjJwAAAACGCBcBEAAJAO0nAAAAAIYI5AQm
+AgoABCgAAAAAhgh6CCsCCwATKAAAAACGCGAFJgIMACooAAAAAIYILQIwAg0AOSgAAAAAhggRBSYC
+DgBQKAAAAACGCMIFEAAPAFooAAAAAIYITgUmAhAAcSgAAAAAhgicBBAAEQB7KAAAAACGCCUFJgIS
+AJIoAAAAAIYIfgEQABMAnCgAAAAAhgj5BCYCFACzKAAAAACGCJgAEAAVAL0oAAAAAIYIzgQmAhYA
+1CgAAAAAhgiaBQEAFwDjKAAAAACGCDYFJgIYAPooAAAAAIYA5gkGABkAAikAAAAAhgDaCAYAGQAK
+KQAAAACGAN0ImQAZABIpAAAAAIYYAQcGABkAMikAAAAAxgGMCAYAGQA0KQAAAACBAPYABgAZAFAp
+AAAAAMYAdQk2AhkAMikAAAAAxgGaCAYAHQClKQAAAACGGAEHQgIdALQpAAAAAIYYAQdCAh4AwykA
+AAAAhghjBP8AHwDpKQAAAACDGAEHBgAfAPEpAAAAAJMItwZIAh8AHSoAAAAAkwi+AW0AHwAkKgAA
+AACTCMoBTQIfACwqAAAAAJYI6QhTAiAAMyoAAAAAhhgBBwYAIAA7KgAAAACRGAcHWAIgAAAAAQAM
+BwAAAgD1CQAAAQAMBwAAAQDhCQAAAQBbBAAAAQCwBgAAAgAWCAAAAwA9BgAAAQAOBAAAAQAOBAAA
+AQAOBAAAAQAOBAAAAQAOBAAAAQAOBAAAAQAOBAAAAQAOBAAAAQAOBAAAAQAOBAAAAQAOBAAAAQAO
+BAAAAQAOBAAAAQAOBAAAAQAOBAAAAQAOBAAAAQCSCAAAAgAOBwAAAwBeCAAABAA9BgAAAQAZCQAA
+AQAZCQAAAQAOBAkAAQcBABEAAQcGABkAAQcKACkAAQcQADEAAQcQADkAAQcQAEEAAQcQAEkAAQcQ
+AFEAAQcQAFkAAQcQAGEAAQcQAGkAAQcGANEAAQcGAPEAAQcVAAEBAQcGAAkBlgk6AAwA8wZKABQA
+IwleABEBdgRjABEBUQRnAOEA5gFtAIkAtQhyAIkAJAKCACkBGwKHADkBEQGUABQAgQmZAEEBEwIG
+ABwAAgSoAJEAAQcQABwA8wbDACQAIwnVAJEACgHgAJEACgHmACwA7QleACwA7QPzABEBrgj4ACQA
+gQmZAMkASAT/AAwAAQcGAAwA5QASAREBVAgYAUkBSAT/ABEBrggdAVEBAQcQABwAAQcGABwAigUv
+AREBGgQ+AREBBgpDAZEAAQcGAFkBZQBWAWEBJQFcAWEBSAT/ABEBrghlAakAAQdrAakAigV1AakA
+eQUBAGkBAQcQAKkA5gkGAKkA2ggGAKkA3QiZAMEAAQcGAMEApwB/AcEAKgiGAckAAQcGAMEA5AeM
+AXkBgQWSAcEA0QmZAYEBogmfAZkBZwGmAZkB+QmvAdkAAQe1AfkAAQcGAC4ACwCAAi4AEwCJAi4A
+GwCoAi4AIwCxAi4AKwDaAi4AMwDaAi4AOwDaAi4AQwCxAi4ASwDgAi4AUwDaAi4AWwD3AkMAYwBB
+A+MAawBBA0EBewBBA0kCcwCoAmkCcwCoAhsAnQCxAAMBIwE3AUkBTgFhAXsBAwABAAYAEQAHABIA
+CAAUAAAAGwFcAgAA6ARgAgAAfghkAgAAZAVgAgAAMQJoAgAAFQVgAgAAxgVcAgAAUgVgAgAAoARc
+AgAAKQVgAgAAggFcAgAA/QRgAgAAnABcAgAA0gRgAgAAngVtAgAAOgVgAgAAZwRcAgAAuwZxAgAA
+8wF2AgAA7Qh7AgEADgADAAEADwAFAAEAEAAHAAEAEQAJAAEAEgALAAEAEwANAAEAFAAPAAEAFQAR
+AAEAFgATAAEAFwAVAAEAGAAXAAEAGQAZAAEAGgAbAAEAGwAdAAEAHAAfAAEAHQAhAAIAKAAjAAIA
+KgAlAAIAKwAnAAEALAAnAAIALQApAD8AUwChAM4A7AAEgAAAAQAAAAAAAAAAAAAAAABBAAAABAAA
+AAAAAAAAAAAAvQG9AAAAAAARAAAAAAAAAAAAAADGAS8JAAAAABEAAAAAAAAAAAAAAMYBVAkAAAAA
+BAAAAAAAAAAAAAAAvQGTBQAAAAARAAAAAAAAAAAAAADGAUcGAAAAAAAAAAABAAAAYwcAAAAAAElE
+VFNWYXJpYWJsZTEwMABJRFRTVmFyaWFibGVzMTAwAElEVFNFdmFsdWF0b3JDb250ZXh0MTAwAExp
+c3RgMQBTQ19iNmQ3NTc0MDVkNTk0NTkwYjYzNjczNmM3ZjEzNWVkMQBUb0ludDMyAEtleVZhbHVl
+UGFpcmAyAERpY3Rpb25hcnlgMgBJbnQ2NAA8TW9kdWxlPgBzZXRfQ3VzdG9tZXJJRABHZXRPdXRw
+dXRJRABTeXN0ZW0uSU8AbXNjb3JsaWIAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMAc3JjAEFk
+ZABTa2lwQmFsYW5jZWQATWFya091dHB1dHNGaW5pc2hlZABBcHBlbmQAUm91bmQAc2V0X1Jhd1Jl
+Y29yZABJc1doaXRlU3BhY2UAZGVmYXVsdEluc3RhbmNlAElEaXNwb3NhYmxlAERvdWJsZQBSdW50
+aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBGaWxlAHNldF9DdXN0b21lck5hbWUARGF0
+ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAVHlwZQBnZXRfQ3VsdHVyZQBz
+ZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAZ2V0X0ludmFyaWFudEN1bHR1cmUAQXBwbGljYXRp
+b25TZXR0aW5nc0Jhc2UARGlzcG9zZQBUcnlQYXJzZQBnZXRfRGF0ZQBzZXRfSm9pbkRhdGUARWRp
+dG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25V
+c2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJp
+YnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRh
+cmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNz
+ZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRl
+AEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lT
+U2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1
+dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAZ2V0X1ZhbHVlAFBhcnNlVmFsdWUAVHJ5
+R2V0VmFsdWUAdmFsdWUAUmF3T2YASW5kZXhPZgBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFBh
+cnNlU3RyaW5nAFRvU3RyaW5nAFN1YnN0cmluZwBjaABNYXRoAGdldF9Tb3VyY2VGaWxlUGF0aABn
+ZXRfTGVuZ3RoAFBlZWsAU3lzdGVtLkNvbXBvbmVudE1vZGVsAHNldF9FbWFpbABTQ19iNmQ3NTc0
+MDVkNTk0NTkwYjYzNjczNmM3ZjEzNWVkMS5kbGwAc2V0X0N1c3RvbWVySURfSXNOdWxsAHNldF9S
+YXdSZWNvcmRfSXNOdWxsAHNldF9DdXN0b21lck5hbWVfSXNOdWxsAHNldF9Kb2luRGF0ZV9Jc051
+bGwAc2V0X0VtYWlsX0lzTnVsbABzZXRfU291cmNlUm93TnVtX0lzTnVsbABzZXRfUmVnaW9uX0lz
+TnVsbABzZXRfTG95YWx0eVBvaW50c19Jc051bGwAU2V0TnVsbABnZXRfSXRlbQBzZXRfSXRlbQBT
+eXN0ZW0Ac2V0X1NvdXJjZVJvd051bQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAHNldF9SZWdpb24A
+U3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rp
+b24ASW52YWxpZE9wZXJhdGlvbkV4Y2VwdGlvbgBDdWx0dXJlSW5mbwBPdXRwdXROYW1lTWFwAE91
+dHB1dE1hcABNaWNyb3NvZnQuU3FsU2VydmVyLkRUU1J1bnRpbWVXcmFwAENoYXIASUZvcm1hdFBy
+b3ZpZGVyAFN0cmluZ0J1aWxkZXIAT3V0cHV0MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRC
+dWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5SdW50aW1l
+LldyYXBwZXIAR2V0RW51bWVyYXRvcgAuY3RvcgAuY2N0b3IAT3V0cHV0SURzAFNraXBXcwBTeXN0
+ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVz
+b3VyY2VzAFNDX2I2ZDc1NzQwNWQ1OTQ1OTBiNjM2NzM2YzdmMTM1ZWQxLlByb3BlcnRpZXMuUmVz
+b3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ19iNmQ3NTc0MDVkNTk0NTkwYjYzNjcz
+NmM3ZjEzNWVkMS5Qcm9wZXJ0aWVzAGdldF9SZWFkT25seVZhcmlhYmxlcwBEYXRlVGltZVN0eWxl
+cwBOdW1iZXJTdHlsZXMAQnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAFNldHRp
+bmdzAENvbm5lY3Rpb25zAHBvcwBnZXRfQ2hhcnMAQnVmZmVycwBQYXJzZUFycmF5T2ZPYmplY3Rz
+AHNldF9Mb3lhbHR5UG9pbnRzAEZpbmlzaE91dHB1dHMAQ3JlYXRlTmV3T3V0cHV0Um93cwBDb25j
+YXQAVHJ5UGFyc2VFeGFjdABQYXJzZU9iamVjdABFeHBlY3QAR2V0AFNldEVuZE9mUm93c2V0AGdl
+dF9EZWZhdWx0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABn
+ZXRfQ3VycmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AENvbnZlcnQATWljcm9zb2Z0
+LlNxbFNlcnZlci5QaXBlbGluZUhvc3QAUHJpbWVPdXRwdXQATW92ZU5leHQAU3lzdGVtLlRleHQA
+UmVhZEFsbFRleHQAR2V0VmFsdWVXaXRoQ29udGV4dABTY3JpcHRDb21wb25lbnRFdmFsQ29udGV4
+dABnZXRfRXZhbHVhdG9yQ29udGV4dABBZGRSb3cAZ2V0X0tleQBrZXkAZ2V0X0Fzc2VtYmx5AG9w
+X0VxdWFsaXR5AAAAABV5AHkAeQB5AC0ATQBNAC0AZABkAAEVeQB5AHkAeQAvAE0ATQAvAGQAZAAA
+MXkAeQB5AHkALQBNAE0ALQBkAGQAJwBUACcASABIADoAbQBtADoAcwBzACcAWgAnAAEXYwB1AHMA
+dABvAG0AZQByAF8AaQBkAAAbYwB1AHMAdABvAG0AZQByAF8AbgBhAG0AZQAAC2UAbQBhAGkAbAAA
+DXIAZQBnAGkAbwBuAAATagBvAGkAbgBfAGQAYQB0AGUAAB1sAG8AeQBhAGwAdAB5AF8AcABvAGkA
+bgB0AHMAAAN7AAAFLAAgAAAHIgA6ACAAAAMiAAAJbgB1AGwAbAAAA30AAGNVAG4AZQB4AHAAZQBj
+AHQAZQBkACAAYwBoAGEAcgBhAGMAdABlAHIAIABpAG4AIABKAFMATwBOACAAYQByAHIAYQB5ACAA
+bgBlAGEAcgAgAHAAbwBzAGkAdABpAG8AbgAgAABlVQBuAGUAeABwAGUAYwB0AGUAZAAgAGMAaABh
+AHIAYQBjAHQAZQByACAAaQBuACAASgBTAE8ATgAgAG8AYgBqAGUAYwB0ACAAbgBlAGEAcgAgAHAA
+bwBzAGkAdABpAG8AbgAgAAAPLAB9AF0AIAAJAA0ACgAAFUUAeABwAGUAYwB0AGUAZAAgACcAARsn
+ACAAYgB1AHQAIABmAG8AdQBuAGQAIAAnAAEdJwAgAGEAdAAgAHAAbwBzAGkAdABpAG8AbgAgAAGA
+m0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQAIABiAGUAIABzAGUA
+dAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBhAGwAdQBlACAAdABv
+ACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAEU8AdQB0AHAAdQB0ACAA
+MAAAHVMAbwB1AHIAYwBlAEYAaQBsAGUAUABhAHQAaAAAcVMAQwBfAGIANgBkADcANQA3ADQAMAA1
+AGQANQA5ADQANQA5ADAAYgA2ADMANgA3ADMANgBjADcAZgAxADMANQBlAGQAMQAuAFAAcgBvAHAA
+ZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAatato5a/GkmHmrvB5BMyfgAEIAEBCAMg
+AAEFIAEBEREEIAEBDgUgAQERdR4HCBUSOQEVEj0CDg4dDggVEUEBFRI9Ag4ODg4RRQ0EAAEODgoV
+EjkBFRI9Ag4OCCAAFRFBARMAChURQQEVEj0CDg4EIAATAAMgAAgFIAIOCAgEAAAScQ8ABQIOHQ4S
+gI0RgJEQEUUEIAARRQwABAIOEYCZEoCNEA0EAAENDQMgAAIDBwEOBhUSPQIODgggAgITABATAREH
+BBJJAhURTQIODhURUQIODgogABURTQITABMBBhURTQIODgogABURUQITABMBBSABEkkOBSABEkkD
+BhURUQIODgQgABMBBgADDg4ODgMgAA4OBwMVEjkBFRI9Ag4OAwgFIAEBEwAEIAEDCAUAAg4ODgsH
+BBUSPQIODg4DCAcgAgETABMBBgcEAwgOCAQgAQgDBQACAg4OBAcCCAMHBwQSSQMIAwUAAggOCAQA
+AQIDAwcBAwUAAQ4dDgkgAwESWR0IEl0FIAIBCBwDBwEIBgACCBJdDgUgAR0ICAUgABKAvQYgARKA
+wRwFAAASgMUGIAEcEoDJCAABEoDNEYDRBSAAEoDVByACAQ4SgNUIt3pcVhk04IkIiYRdzYCAzJEC
+Bg4CBggDBhIUAwYSGAMGEgwDBhJhAwYSbQMGEnEDBhIgCgACDhUSPQIODg4JAAEOFRI9Ag4ODSAB
+FRI5ARUSPQIODg4IIAAVEj0CDg4DIAADBCABAQMEIAEBAgQgAQEKBSABARFFCyAEAQgdCB0SWRJd
+BSABARJhBAAAEm0FAAEBEnEEAAASIAMAAAEDKAAOAygAAgMoAAoEKAARRQMoAAgECAASbQQIABJx
+BAgAEiAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEA
+I1NDX2I2ZDc1NzQwNWQ1OTQ1OTBiNjM2NzM2YzdmMTM1ZWQxAAAFAQAAAAAWAQARQ29weXJpZ2h0
+IEAgIDIwMjYAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlz
+cGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43BAEAAAAAALQAAADOyu++AQAAAJEAAABsU3lzdGVt
+LlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3Vs
+dHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNv
+dXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAADARQAAAAAAAAAA
+AADaRQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzEUAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBt
+c2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAA
+GAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFhgAADs
+AwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv/gAA
+AQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYAYQBy
+AEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAAALAE
+TAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAwADQAYgAw
+AAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkATgBhAG0A
+ZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMAXwBi
+ADYAZAA3ADUANwA0ADAANQBkADUAOQA0ADUAOQAwAGIANgAzADYANwAzADYAYwA3AGYAMQAzADUA
+ZQBkADEAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAuADAAAABw
+ACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfAGIANgBkADcANQA3ADQAMAA1AGQA
+NQA5ADQANQA5ADAAYgA2ADMANgA3ADMANgBjADcAZgAxADMANQBlAGQAMQAuAGQAbABsAAAASAAS
+AAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAA
+IAAyADAAMgA2AAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4
+ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AYgA2AGQANwA1ADcA
+NAAwADUAZAA1ADkANAA1ADkAMABiADYAMwA2ADcAMwA2AGMANwBmADEAMwA1AGUAZAAxAC4AZABs
+AGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfAGIANgBkADcANQA3ADQA
+MAA1AGQANQA5ADQANQA5ADAAYgA2ADMANgA3ADMANgBjADcAZgAxADMANQBlAGQAMQAAADQACAAB
+AFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgAAQBBAHMA
+cwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAMAAAA7DUAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property dataType="System.String" description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package." name="VSTAProjectName" typeConverter="NOTBROWSABLE">SC_b6d757405d594590b636736c7f135ed1</property>
+                <property dataType="System.String" description="Specifies the programming language used by the script." name="ScriptLanguage" typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property dataType="System.String" description="Specifies a comma-separated list of read-only variables." name="ReadOnlyVariables" UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::SourceFilePath</property>
+                <property dataType="System.String" description="Specifies a comma-separated list of read/write variables." name="ReadWriteVariables" UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"/>
+                <property dataType="System.String" description="List of breakpoints present on the script." isArray="true" name="BreakpointCollection" typeConverter="NOTBROWSABLE">
+                  <arrayElements arrayElementCount="0"/>
+                </property>
+                <property dataType="System.String" description="Checksum to match component metedata against compiled codes." name="MetadataChecksum140" typeConverter="NOTBROWSABLE">E5</property>
+                <property dataType="System.String" name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <outputs>
+                <output refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0]" hasSideEffects="true" name="Output 0">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RawRecord]" dataType="wstr" length="4000" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RawRecord]" name="RawRecord"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPoints]" dataType="i8" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPoints]" name="LoyaltyPoints"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[JoinDate]" dataType="date" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[JoinDate]" name="JoinDate"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Region]" dataType="wstr" length="50" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Region]" name="Region"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Email]" dataType="wstr" length="400" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[Email]" name="Email"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerName]" dataType="wstr" length="400" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerName]" name="CustomerName"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerID]" codePage="1252" dataType="str" length="20" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[CustomerID]" name="CustomerID"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[SourceRowNum]" dataType="i4" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[SourceRowNum]" name="SourceRowNum"/>
+                  <outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RunID]" dataType="wstr" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RunID]" name="RunID" length="54"/><outputColumn refId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPointsInvalid]" dataType="bool" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPointsInvalid]" name="LoyaltyPointsInvalid"/></outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\Load Customers Data Flow\Set Reject Reason" componentClassID="Microsoft.DerivedColumn" contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column." name="Set Reject Reason" usesDispositions="true">
+              <inputs>
+                <input refId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input]" description="Input to the Derived Column Transformation" name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input].Columns[CustomerID_C]" cachedCodepage="1252" cachedDataType="str" cachedLength="20" cachedName="CustomerID_C" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[CustomerID_C]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input].Columns[Email_C]" cachedDataType="wstr" cachedLength="400" cachedName="Email_C" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input].Columns[Points_C]" cachedDataType="i8" cachedName="Points_C" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Points_C]"/>
+                  <inputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input].Columns[RunID]" cachedDataType="wstr" cachedName="RunID" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RunID]" cachedLength="54"/><inputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input].Columns[LoyaltyPointsInvalid]" cachedDataType="bool" cachedName="LoyaltyPointsInvalid" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[LoyaltyPointsInvalid]"/></inputColumns>
+                  <externalMetadataColumns/>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output]" description="Default Output of the Derived Column Transformation" exclusionGroup="1" name="Derived Column Output" synchronousInputId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[RejectReason]" dataType="wstr" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" length="50" lineageId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[RejectReason]" name="RejectReason" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">(DT_WSTR,50)(#{Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input].Columns[LoyaltyPointsInvalid]} ? "Invalid loyalty_points type/value" : (#{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[CustomerID_C]} == "" ? "Missing customer_id" : (#{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Points_C]} &lt; 0 ? "Negative loyalty points" : ((#{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]} != "" &amp;&amp; ([FINDSTRING](#{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]},"@",1) &lt; 2 || [FINDSTRING](#{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]},".",1) == 0 || [LEN](#{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]}) &gt; 254)) ? "Invalid email" : ""))))</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">(DT_WSTR,50)(LoyaltyPointsInvalid ? "Invalid loyalty_points type/value" : (CustomerID_C == "" ? "Missing customer_id" : (Points_C &lt; 0 ? "Negative loyalty points" : ((Email_C != "" &amp;&amp; (FINDSTRING(Email_C,"@",1) &lt; 2 || FINDSTRING(Email_C,".",1) == 0 || LEN(Email_C) &gt; 254)) ? "Invalid email" : ""))))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[Email_Final]" dataType="wstr" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" length="400" lineageId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[Email_Final]" name="Email_Final" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property containsID="true" dataType="System.String" description="Derived Column Expression" name="Expression">#{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]} == "" ? NULL(DT_WSTR,400) : #{Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Email_C]}</property>
+                        <property containsID="true" dataType="System.String" description="Derived Column Friendly Expression" expressionType="Notify" name="FriendlyExpression">Email_C == "" ? NULL(DT_WSTR,400) : Email_C</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+                <output refId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Error Output]" description="Error Output of the Derived Column Transformation" exclusionGroup="1" isErrorOut="true" name="Derived Column Error Output" synchronousInputId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2"/>
+                  </outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\Load Customers Data Flow\Split Valid Invalid" componentClassID="Microsoft.ConditionalSplit" contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records." name="Split Valid Invalid" usesDispositions="true">
+              <inputs>
+                <input refId="Package\Load Customers Data Flow\Split Valid Invalid.Inputs[Conditional Split Input]" description="Input to the Conditional Split Transformation" name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\Load Customers Data Flow\Split Valid Invalid.Inputs[Conditional Split Input].Columns[RejectReason]" cachedDataType="wstr" cachedLength="50" cachedName="RejectReason" lineageId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[RejectReason]"/>
+                  </inputColumns>
+                  <externalMetadataColumns/>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Valid]" description="Output 1 of the Conditional Split Transformation" errorOrTruncationOperation="Computation" errorRowDisposition="FailComponent" exclusionGroup="1" name="Valid" synchronousInputId="Package\Load Customers Data Flow\Split Valid Invalid.Inputs[Conditional Split Input]" truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property containsID="true" dataType="System.String" description="Specifies the expression. This expression version uses lineage identifiers instead of column names." name="Expression">#{Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[RejectReason]} == ""</property>
+                    <property containsID="true" dataType="System.String" description="Specifies the friendly version of the expression. This expression version uses column names." expressionType="Notify" name="FriendlyExpression">RejectReason == ""</property>
+                    <property dataType="System.Int32" description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value." name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns/>
+                </output>
+                <output refId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Invalid]" description="Default Output of the Conditional Split Transformation" exclusionGroup="1" name="Invalid" synchronousInputId="Package\Load Customers Data Flow\Split Valid Invalid.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property dataType="System.Boolean" name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns/>
+                </output>
+                <output refId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Conditional Split Error Output]" description="Error Output of the Conditional Split Transformation" exclusionGroup="1" isErrorOut="true" name="Conditional Split Error Output" synchronousInputId="Package\Load Customers Data Flow\Split Valid Invalid.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Conditional Split Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Conditional Split Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Conditional Split Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Conditional Split Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2"/>
+                  </outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+              </outputs>
+            </component>
+            <component refId="Package\Load Customers Data Flow\Staging Customers" componentClassID="Microsoft.OLEDBDestination" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" description="OLE DB Destination" name="Staging Customers" usesDispositions="true" version="4">
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">[dbo].[Customers_Staging]</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable"/>
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"/>
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection refId="Package\Load Customers Data Flow\Staging Customers.Connections[OleDbConnection]" connectionManagerID="Package.ConnectionManagers[CustomerDB_Conn]" connectionManagerRefId="Package.ConnectionManagers[CustomerDB_Conn]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection"/>
+              </connections>
+              <inputs>
+                <input refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input]" errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[JoinDate]" cachedDataType="date" cachedName="JoinDate" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[JoinDate]" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[JoinDate]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[SourceRowNum]" cachedDataType="i4" cachedName="SourceRowNum" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[SourceRowNum]" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[SourceRowNum]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[ETLLoadDate]" cachedDataType="dbTimeStamp" cachedName="ETLLoadDate" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadDate]" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[ETLLoadDate]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[CustomerID_C]" cachedCodepage="1252" cachedDataType="str" cachedLength="20" cachedName="CustomerID_C" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[CustomerID_C]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[Name_C]" cachedDataType="wstr" cachedLength="100" cachedName="Name_C" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Name_C]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[Email_Final]" cachedDataType="wstr" cachedLength="400" cachedName="Email_Final" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[Email]" lineageId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output].Columns[Email_Final]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[Region_C]" cachedDataType="wstr" cachedLength="50" cachedName="Region_C" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[Region]" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Region_C]"/>
+                    <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[Points_C]" cachedDataType="i8" cachedName="Points_C" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[LoyaltyPoints]" lineageId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output].Columns[Points_C]"/>
+                  <inputColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].Columns[RunID]" cachedDataType="wstr" cachedLength="54" cachedName="RunID" externalMetadataColumnId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[RunID]" lineageId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0].Columns[RunID]"/></inputColumns>
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[SourceRowNum]" dataType="i4" name="SourceRowNum"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]" codePage="1252" dataType="str" length="20" name="CustomerID"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]" dataType="wstr" length="100" name="CustomerName"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[Email]" dataType="wstr" length="254" name="Email"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[Region]" dataType="wstr" length="50" name="Region"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[JoinDate]" dataType="dbDate" name="JoinDate"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[LoyaltyPoints]" dataType="i8" name="LoyaltyPoints"/>
+                    <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadDate]" dataType="dbTimeStamp2" name="ETLLoadDate" scale="7"/>
+                  <externalMetadataColumn refId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input].ExternalColumns[RunID]" dataType="wstr" length="54" name="RunID"/></externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output refId="Package\Load Customers Data Flow\Staging Customers.Outputs[OLE DB Destination Error Output]" exclusionGroup="1" isErrorOut="true" name="OLE DB Destination Error Output" synchronousInputId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn refId="Package\Load Customers Data Flow\Staging Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" dataType="i4" lineageId="Package\Load Customers Data Flow\Staging Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" name="ErrorCode" specialFlags="1"/>
+                    <outputColumn refId="Package\Load Customers Data Flow\Staging Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" dataType="i4" lineageId="Package\Load Customers Data Flow\Staging Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" name="ErrorColumn" specialFlags="2"/>
+                  </outputColumns>
+                  <externalMetadataColumns/>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path refId="Package\Load Customers Data Flow.Paths[Derived Column Output]" endId="Package\Load Customers Data Flow\Set Reject Reason.Inputs[Derived Column Input]" name="Derived Column Output" startId="Package\Load Customers Data Flow\Clean Columns.Outputs[Derived Column Output]"/>
+            <path refId="Package\Load Customers Data Flow.Paths[Derived Column Output1]" endId="Package\Load Customers Data Flow\Split Valid Invalid.Inputs[Conditional Split Input]" name="Derived Column Output" startId="Package\Load Customers Data Flow\Set Reject Reason.Outputs[Derived Column Output]"/>
+            <path refId="Package\Load Customers Data Flow.Paths[Invalid]" endId="Package\Load Customers Data Flow\Error Log.Inputs[OLE DB Destination Input]" name="Invalid" startId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Invalid]"/>
+            <path refId="Package\Load Customers Data Flow.Paths[Output 0]" endId="Package\Load Customers Data Flow\Count Rows Read.Inputs[Row Count Input 1]" name="Output 0" startId="Package\Load Customers Data Flow\Read Customer JSON.Outputs[Output 0]"/>
+            <path refId="Package\Load Customers Data Flow.Paths[Row Count Output 1]" endId="Package\Load Customers Data Flow\Clean Columns.Inputs[Derived Column Input]" name="Row Count Output 1" startId="Package\Load Customers Data Flow\Count Rows Read.Outputs[Row Count Output 1]"/>
+            <path refId="Package\Load Customers Data Flow.Paths[Valid]" endId="Package\Load Customers Data Flow\Staging Customers.Inputs[OLE DB Destination Input]" name="Valid" startId="Package\Load Customers Data Flow\Split Valid Invalid.Outputs[Valid]"/>
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\Merge Into Customers" DTS:CreationName="Microsoft.ExecuteSQLTask" DTS:Description="Execute SQL Task" DTS:DTSID="{AD90F43D-A575-4F37-BE6C-3C6567C11788}" DTS:ExecutableType="Microsoft.ExecuteSQLTask" DTS:FailPackageOnFailure="True" DTS:LocaleID="-1" DTS:ObjectName="Merge Into Customers" DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1" DTS:ThreadHint="0">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" SQLTask:Connection="{C430483E-CFCD-468E-9CAD-4BCCC7E12948}" SQLTask:SqlStatementSource=";WITH d AS (&#10;    SELECT *, ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY SourceRowNum DESC) AS rn&#10;    FROM dbo.Customers_Staging&#10;    WHERE RunID = (SELECT TOP (1) RunID FROM dbo.Customers_Staging ORDER BY RunID DESC)&#10;)&#10;MERGE dbo.Customers AS t&#10;USING (SELECT * FROM d WHERE rn = 1) AS s&#10;   ON t.CustomerID = s.CustomerID&#10;WHEN MATCHED THEN UPDATE SET&#10;     t.CustomerName = s.CustomerName, t.Email = s.Email, t.Region = s.Region,&#10;     t.JoinDate = s.JoinDate, t.LoyaltyPoints = s.LoyaltyPoints&#10;WHEN NOT MATCHED THEN INSERT (CustomerID, CustomerName, Email, Region, JoinDate, LoyaltyPoints)&#10;     VALUES (s.CustomerID, s.CustomerName, s.Email, s.Region, s.JoinDate, s.LoyaltyPoints);&#10;&#10;UPDATE d SET CustomerName=c.CustomerName,Email=c.Email,Region=c.Region,JoinDate=c.JoinDate,&#10;             LoyaltyPoints=c.LoyaltyPoints,UpdatedAt=SYSUTCDATETIME()&#10;FROM dbo.DimCustomer d JOIN dbo.Customers c ON c.CustomerID=d.CustomerID;&#10;INSERT dbo.DimCustomer(CustomerID,CustomerName,Email,Region,JoinDate,LoyaltyPoints)&#10;SELECT c.CustomerID,c.CustomerName,c.Email,c.Region,c.JoinDate,c.LoyaltyPoints&#10;FROM dbo.Customers c&#10;WHERE NOT EXISTS (SELECT 1 FROM dbo.DimCustomer d WHERE d.CustomerID=c.CustomerID);"/>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\Truncate Staging" DTS:CreationName="Microsoft.ExecuteSQLTask" DTS:Description="Execute SQL Task" DTS:DTSID="{003D6234-31E8-4699-B913-914F61D04919}" DTS:ExecutableType="Microsoft.ExecuteSQLTask" DTS:FailPackageOnFailure="True" DTS:LocaleID="-1" DTS:ObjectName="Truncate Staging" DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1" DTS:ThreadHint="0">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" SQLTask:Connection="{C430483E-CFCD-468E-9CAD-4BCCC7E12948}" SQLTask:SqlStatementSource="   TRUNCATE TABLE dbo.Customers_Staging;"/>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint]" DTS:CreationName="" DTS:DTSID="{6EB031E8-78BA-4D52-8E30-30BE2BEBD7F8}" DTS:From="Package\Truncate Staging" DTS:LogicalAnd="True" DTS:ObjectName="Constraint" DTS:To="Package\Load Customers Data Flow"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint 1]" DTS:CreationName="" DTS:DTSID="{F14B2F36-2521-4EE2-BE01-8C8CD555FEA2}" DTS:From="Package\Load Customers Data Flow" DTS:LogicalAnd="True" DTS:ObjectName="Constraint 1" DTS:To="Package\Merge Into Customers"/>
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Load Customers Data Flow"
+          TopLeft="345.833314437834,146.466665648156" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Merge Into Customers"
+          TopLeft="660.833297226994,263.466664834552" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Truncate Staging"
+          TopLeft="53.3333304193286,39.8666663894389" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="132.133330419329,81.4666663894389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="315.699984018505,64.9999992587169"
+              Start="0,0"
+              End="315.699984018505,57.4999992587169">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.4999996293584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.4999996293584"
+                    Point2="0,32.4999996293584"
+                    Point3="4,32.4999996293584" />
+                  <mssgle:LineSegment
+                    End="311.699984018505,32.4999996293584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="311.699984018505,32.4999996293584"
+                    Point2="315.699984018505,32.4999996293584"
+                    Point3="315.699984018505,36.4999996293584" />
+                  <mssgle:LineSegment
+                    End="315.699984018505,57.4999992587169" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="447.833314437834,188.066665648156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="303.39998278916,75.3999991863967"
+              Start="0,0"
+              End="303.39998278916,67.8999991863967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6999995931983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6999995931983"
+                    Point2="0,37.6999995931983"
+                    Point3="4,37.6999995931983" />
+                  <mssgle:LineSegment
+                    End="299.39998278916,37.6999995931983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="299.39998278916,37.6999995931983"
+                    Point2="303.39998278916,37.6999995931983"
+                    Point3="303.39998278916,41.6999995931983" />
+                  <mssgle:LineSegment
+                    End="303.39998278916,67.8999991863967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Customers Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Load Customers Data Flow\Count Rows Read"
+          TopLeft="272.499985111257,25.9999998191992" />
+        <NodeLayout
+          Size="157.6,44"
+          Id="Package\Load Customers Data Flow\Split Valid Invalid"
+          TopLeft="857.499953148268,27.7999998372794" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Load Customers Data Flow\Set Reject Reason"
+          TopLeft="641.333298592933,28.0333331766395" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load Customers Data Flow\Clean Columns"
+          TopLeft="464.999974593521,28.5999998011192" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Load Customers Data Flow\Read Customer JSON"
+          TopLeft="32.4999982242783,28.5999998011192" />
+        <EdgeLayout
+          Id="Package\Load Customers Data Flow.Paths[Output 0]"
+          TopLeft="214.099998224278,48.0999998101592">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.399986886979,0"
+              Start="0,0"
+              End="50.899986886979,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.899986886979,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customers Data Flow.Paths[Derived Column Output1]"
+          TopLeft="806.133298592933,49.3166665069594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.3666545553344,0"
+              Start="0,0"
+              End="43.8666545553344,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.8666545553344,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customers Data Flow.Paths[Derived Column Output]"
+          TopLeft="614.599974593521,49.1166664888793">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.7333239994121,0"
+              Start="0,0"
+              End="19.2333239994121,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.2333239994121,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customers Data Flow.Paths[Row Count Output 1]"
+          TopLeft="434.899985111257,48.0999998101592">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.0999894822638,0"
+              Start="0,0"
+              End="22.5999894822638,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.5999894822638,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Load Customers Data Flow\Staging Customers"
+          TopLeft="934.999948913854,127.399999114076" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Load Customers Data Flow\Error Log"
+          TopLeft="774.999957655869,123.066665810877" />
+        <EdgeLayout
+          Id="Package\Load Customers Data Flow.Paths[Invalid]"
+          TopLeft="937.13328643607,71.7999998372794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-101.333328780201,51.2666659735971"
+              Start="0,0"
+              End="-101.333328780201,43.7666659735971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6333329867985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6333329867985"
+                    Point2="0,25.6333329867985"
+                    Point3="-4,25.6333329867985" />
+                  <mssgle:LineSegment
+                    End="-97.3333287802011,25.6333329867985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-97.3333287802011,25.6333329867985"
+                    Point2="-101.333328780201,25.6333329867985"
+                    Point3="-101.333328780201,29.6333329867985" />
+                  <mssgle:LineSegment
+                    End="-101.333328780201,43.7666659735971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-65.9312542338506,30.6333329867985,30.5291796875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customers Data Flow.Paths[Valid]"
+          TopLeft="961.233286481601,71.7999998372794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.966662432253,55.599999276797"
+              Start="0,0"
+              End="56.966662432253,48.099999276797">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5752760882673" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5752760882673"
+                    Point2="0,22.5752760882673"
+                    Point3="4,22.5752760882673" />
+                  <mssgle:LineSegment
+                    End="52.966662432253,22.5752760882673" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.966662432253,22.5752760882673"
+                    Point2="56.966662432253,22.5752760882673"
+                    Point3="56.966662432253,26.5752760882673" />
+                  <mssgle:LineSegment
+                    End="56.966662432253,48.099999276797" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.1321593411265,27.5752760882673,22.70234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Customers Data Flow\Staging Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Customers Data Flow\Error Log">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

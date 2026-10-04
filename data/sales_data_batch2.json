@@ -1,0 +1,2424 @@
+[
+  {
+    "transaction_id": "T870",
+    "customer_id": "C149",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 6,
+    "discount": 0,
+    "date": "2024-01-23T23:59:23Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T858",
+    "customer_id": "C097",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "2024/01/20 05:51:30",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T907",
+    "customer_id": "C077",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "2024/02/21 00:41:29",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T892",
+    "customer_id": "C108",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "02-21-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T951",
+    "customer_id": "C054",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 6,
+    "discount": 0.05,
+    "date": "2023-11-18",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T913",
+    "customer_id": "C092",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 4,
+    "discount": null,
+    "date": "2024-02-18T15:54:19Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T817",
+    "customer_id": "C130",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 5,
+    "discount": 0.1,
+    "date": "2024-01-14",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T890",
+    "customer_id": "C144",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 6,
+    "discount": 0,
+    "date": "2024-02-05T07:05:00Z",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T935",
+    "customer_id": "C100",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 1,
+    "discount": 0.05,
+    "date": "02-12-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T160",
+    "customer_id": "C005",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 7,
+    "discount": 0,
+    "date": "08-17-2023",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T928",
+    "customer_id": "C007",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 4,
+    "discount": 0.15,
+    "date": "2024/01/20 03:01:55",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T872",
+    "customer_id": "C022",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 4,
+    "discount": null,
+    "date": "2024/02/18 23:29:00",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T930",
+    "customer_id": "C046",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 1,
+    "discount": 0.05,
+    "date": "2024-01-29",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T944",
+    "customer_id": "C019",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 3,
+    "discount": 0.2,
+    "date": "01-12-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T848",
+    "customer_id": "C141",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 8,
+    "discount": 0.05,
+    "date": "2024/01/16 12:56:13",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T932",
+    "customer_id": "C112",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 8,
+    "discount": 0,
+    "date": "2024-01-22T22:09:18Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T873",
+    "customer_id": "C108",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 7,
+    "discount": 0.1,
+    "date": "2024-02-25",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T847",
+    "customer_id": "C096",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 5,
+    "discount": null,
+    "date": "2024/01/05 10:42:41",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T875",
+    "customer_id": "C103",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "2024-02-17",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T841",
+    "customer_id": "C084",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "02-23-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T942",
+    "customer_id": "C129",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "02-27-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T884",
+    "customer_id": "C012",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "2024-02-27T08:15:44Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T836",
+    "customer_id": "C134",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 4,
+    "discount": null,
+    "date": "2024-02-21",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T860",
+    "customer_id": "C093",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 6,
+    "discount": 0,
+    "date": "2024-01-08",
+    "region": "Central"
+  },
+  {
+    "transaction_id": "T818",
+    "customer_id": "C094",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 2,
+    "discount": 0.05,
+    "date": "2024-02-01",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T802",
+    "customer_id": "C026",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 3,
+    "discount": 0.15,
+    "date": "2024-01-30",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T883",
+    "customer_id": "C142",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 6,
+    "discount": 0.2,
+    "date": "2024-01-07",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T886",
+    "customer_id": "C016",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 5,
+    "discount": 0.05,
+    "date": "2024-01-16",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T834",
+    "customer_id": "C029",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 6,
+    "discount": 1.5,
+    "date": "2024-01-23",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T630",
+    "customer_id": "C049",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 4,
+    "discount": 0,
+    "date": "2023-08-23T02:25:36Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T241",
+    "customer_id": "C061",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 7,
+    "discount": null,
+    "date": "2023-01-13",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T910",
+    "customer_id": "C072",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 7,
+    "discount": null,
+    "date": "2024-02-25",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T827",
+    "customer_id": "C124",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "2024-01-28T01:12:46Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T853",
+    "customer_id": "C063",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 4,
+    "discount": 0.05,
+    "date": "2024-02-05",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T846",
+    "customer_id": "C146",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 6,
+    "discount": 0,
+    "date": "02-08-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T919",
+    "customer_id": "C091",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "01-30-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T940",
+    "customer_id": "C069",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "2024-02-18T05:50:50Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T931",
+    "customer_id": "C042",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 5,
+    "discount": 0.15,
+    "date": "02-04-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T844",
+    "customer_id": "C136",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": -2,
+    "discount": 0.05,
+    "date": "01-16-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T819",
+    "customer_id": "C104",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 7,
+    "discount": 0.1,
+    "date": "2024-02-25",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T807",
+    "customer_id": "C139",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 3,
+    "discount": 0,
+    "date": "2024-02-16",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T857",
+    "customer_id": "C013",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 2,
+    "discount": null,
+    "date": "2024-01-18T15:20:02Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T949",
+    "customer_id": "C022",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "01-14-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T823",
+    "customer_id": "C074",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": -1,
+    "discount": null,
+    "date": "2024/01/20 23:03:34",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T922",
+    "customer_id": "C078",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 2,
+    "discount": 0,
+    "date": "2024/02/26 05:42:13",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T934",
+    "customer_id": "C002",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 1,
+    "discount": 0,
+    "date": "02-12-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T933",
+    "customer_id": "C145",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 6,
+    "discount": 0,
+    "date": "2024/02/07 10:32:15",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T809",
+    "customer_id": "C145",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 4,
+    "discount": 0.1,
+    "date": "01-11-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T812",
+    "customer_id": "C050",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 1,
+    "discount": 0.05,
+    "date": "02-16-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T889",
+    "customer_id": "C001",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 1,
+    "discount": null,
+    "date": "2024-01-20",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T880",
+    "customer_id": "C006",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 2,
+    "discount": 0,
+    "date": "2024-01-28",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T893",
+    "customer_id": "C005",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "2024-02-20T07:08:00Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T816",
+    "customer_id": "C035",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 5,
+    "discount": 0.2,
+    "date": "02-21-2024",
+    "region": null
+  },
+  {
+    "transaction_id": "T555",
+    "customer_id": "C134",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 1,
+    "discount": 0.15,
+    "date": "08-25-2023",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T334",
+    "customer_id": "C085",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 2,
+    "discount": 0.05,
+    "date": "2023/01/10 05:37:06",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T947",
+    "customer_id": "C103",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 5,
+    "discount": 0.05,
+    "date": "2024-02-23",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T238",
+    "customer_id": "C092",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "2023-05-11T15:01:30Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T952",
+    "customer_id": "C110",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 6,
+    "discount": 0,
+    "date": "2023-11-17T16:48:50Z",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T808",
+    "customer_id": "C072",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 3,
+    "discount": null,
+    "date": "2024/01/22 15:58:08",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T329",
+    "customer_id": "C147",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "07-06-2023",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T866",
+    "customer_id": "C068",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 1,
+    "discount": 0.2,
+    "date": "2024/02/11 00:47:43",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T918",
+    "customer_id": "C054",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 7,
+    "discount": 0,
+    "date": "2024-02-21T08:17:16Z",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T900",
+    "customer_id": "C148",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 8,
+    "discount": 0.05,
+    "date": "2024/01/07 01:48:28",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T814",
+    "customer_id": "C141",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "01-31-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T805",
+    "customer_id": "C123",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 8,
+    "discount": 0,
+    "date": "2024-01-19T07:27:14Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T801",
+    "customer_id": "C134",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": -3,
+    "discount": 0,
+    "date": "2024-02-06T20:27:34Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T921",
+    "customer_id": "C038",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 4,
+    "discount": 0,
+    "date": "2024-02-13T16:12:53Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T864",
+    "customer_id": "C101",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 3,
+    "discount": 0.2,
+    "date": "2024-01-10",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T902",
+    "customer_id": "C067",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "01-14-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T941",
+    "customer_id": "C111",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 3,
+    "discount": 0.2,
+    "date": "2024-02-12T02:23:32Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T887",
+    "customer_id": "C120",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 2,
+    "discount": 0.2,
+    "date": "02-02-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T948",
+    "customer_id": "C001",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "01-26-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T811",
+    "customer_id": "C076",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 2,
+    "discount": 0.05,
+    "date": "2024/01/08 05:26:35",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T904",
+    "customer_id": "C089",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 3,
+    "discount": 0.15,
+    "date": "2024/01/27 12:01:06",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T121",
+    "customer_id": "C034",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 4,
+    "discount": 0.15,
+    "date": "2023-12-21",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T917",
+    "customer_id": "C112",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 4,
+    "discount": 0.05,
+    "date": "2024-01-16",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T938",
+    "customer_id": "C053",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 2,
+    "discount": null,
+    "date": "2024/02/16 11:12:12",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T925",
+    "customer_id": "C083",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 1,
+    "discount": 0.2,
+    "date": "2024-02-26",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T824",
+    "customer_id": "C030",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 3,
+    "discount": 0.1,
+    "date": "2024-01-27",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T842",
+    "customer_id": "C124",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "2024/02/28 01:56:01",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T879",
+    "customer_id": "C048",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 6,
+    "discount": 0.1,
+    "date": "01-18-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T828",
+    "customer_id": "C045",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "2024-02-05T07:24:27Z",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T810",
+    "customer_id": "C016",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 7,
+    "discount": null,
+    "date": "2024/02/16 00:22:21",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T877",
+    "customer_id": "C132",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "2024-01-08",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T896",
+    "customer_id": "C118",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 7,
+    "discount": 0.2,
+    "date": "01-09-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T499",
+    "customer_id": "C083",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 7,
+    "discount": 0.1,
+    "date": "2023-03-26",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T909",
+    "customer_id": "C111",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 4,
+    "discount": 0.2,
+    "date": "2024/01/10 04:34:55",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T835",
+    "customer_id": "C024",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 2,
+    "discount": 0.15,
+    "date": "2024-01-22",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T700",
+    "customer_id": "C056",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 7,
+    "discount": 0.05,
+    "date": "2023-04-23T07:17:02Z",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T888",
+    "customer_id": "C061",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 3,
+    "discount": null,
+    "date": "2024-01-27T03:54:45Z",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T882",
+    "customer_id": "C027",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "2024-02-28T03:45:19Z",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T881",
+    "customer_id": "C050",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 4,
+    "discount": null,
+    "date": "02-05-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T843",
+    "customer_id": "C146",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 4,
+    "discount": 0.1,
+    "date": "2024/01/02 04:44:04",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T169",
+    "customer_id": "C140",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 4,
+    "discount": 0.2,
+    "date": "2023-12-22T05:12:56Z",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T911",
+    "customer_id": "C075",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 3,
+    "discount": null,
+    "date": "2024-01-31",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T833",
+    "customer_id": "C060",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": -999.99
+    },
+    "quantity": 1,
+    "discount": 0.05,
+    "date": "2024/01/08 11:53:37",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T945",
+    "customer_id": "C132",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 4,
+    "discount": 0.15,
+    "date": "02-16-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T912",
+    "customer_id": "C103",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 2,
+    "discount": null,
+    "date": "2024-01-11",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T855",
+    "customer_id": "C073",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 1,
+    "discount": 0.2,
+    "date": "2024-02-19",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T015",
+    "customer_id": "C040",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "2023-09-25",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T953",
+    "customer_id": "C146",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "2023-12-01",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T871",
+    "customer_id": "C066",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 3,
+    "discount": 0.1,
+    "date": "2024-01-22",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T914",
+    "customer_id": "C019",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "2024-01-19T12:30:45Z",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T915",
+    "customer_id": "C138",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 6,
+    "discount": 0.15,
+    "date": "2024/01/06 12:12:00",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T854",
+    "customer_id": "C124",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 5,
+    "discount": 0.15,
+    "date": "2024/02/07 19:41:34",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T706",
+    "customer_id": "C030",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "2023-06-28T11:12:23Z",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T869",
+    "customer_id": "C027",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 5,
+    "discount": 0,
+    "date": "2024-01-04T13:18:18Z",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T851",
+    "customer_id": "C046",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 6,
+    "discount": 0.1,
+    "date": "02-11-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T905",
+    "customer_id": "C128",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 8,
+    "discount": 0.2,
+    "date": "02-10-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T859",
+    "customer_id": "C010",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 3,
+    "discount": null,
+    "date": "02-14-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T926",
+    "customer_id": "C053",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 5,
+    "discount": 0.05,
+    "date": "2024-02-20",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T899",
+    "customer_id": "C105",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 3,
+    "discount": null,
+    "date": "2024-01-20",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T891",
+    "customer_id": "C085",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 3,
+    "discount": 0.2,
+    "date": "2024/01/29 20:23:05",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T146",
+    "customer_id": "C027",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "2023-01-17",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T832",
+    "customer_id": "C013",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 2,
+    "discount": 0.05,
+    "date": "2024/02/07 04:32:54",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T950",
+    "customer_id": "C028",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "2024-02-11",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T865",
+    "customer_id": "C144",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 2,
+    "discount": 0.2,
+    "date": "2024-01-16T09:04:05Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T686",
+    "customer_id": "C022",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 4,
+    "discount": 0,
+    "date": "2023-03-06",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T868",
+    "customer_id": "C080",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 2,
+    "discount": 0,
+    "date": "2024/01/14 10:17:28",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T852",
+    "customer_id": "C004",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 7,
+    "discount": 0,
+    "date": "2024-01-12",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T837",
+    "customer_id": "C054",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 2,
+    "discount": 0.05,
+    "date": "01-27-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T826",
+    "customer_id": "C116",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "01-28-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T920",
+    "customer_id": "C080",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 2,
+    "discount": null,
+    "date": "2024/01/04 00:17:56",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T916",
+    "customer_id": "C147",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 4,
+    "discount": null,
+    "date": "2024-01-03",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T876",
+    "customer_id": "C107",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 3,
+    "discount": 0.1,
+    "date": "2024-01-12T01:02:44Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T894",
+    "customer_id": "C148",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 2,
+    "discount": 0.15,
+    "date": "01-25-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T901",
+    "customer_id": "C010",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 1,
+    "discount": 0,
+    "date": "2024/02/15 01:35:17",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T619",
+    "customer_id": "C025",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 6,
+    "discount": 0.1,
+    "date": "04-27-2023",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T897",
+    "customer_id": "C129",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 7,
+    "discount": 0.05,
+    "date": "01-17-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T943",
+    "customer_id": "C077",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 6,
+    "discount": 0.15,
+    "date": "2024-02-08T08:58:29Z",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T820",
+    "customer_id": "C002",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 6,
+    "discount": 0.05,
+    "date": "2024-01-02T08:13:03Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T825",
+    "customer_id": "C039",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 5,
+    "discount": 0.05,
+    "date": "2024-02-09T06:46:06Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T885",
+    "customer_id": "C043",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 4,
+    "discount": 0.1,
+    "date": "2024-02-02T04:57:00Z",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T754",
+    "customer_id": "C145",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 7,
+    "discount": 0.15,
+    "date": "2023-08-20T07:06:49Z",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T815",
+    "customer_id": "C020",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "2024-02-03",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T645",
+    "customer_id": "C088",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 2,
+    "discount": 0.2,
+    "date": "2023-04-16",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T845",
+    "customer_id": "C144",
+    "product": {
+      "id": "P08",
+      "name": "Headphones",
+      "category": "Electronics",
+      "price": 129.99
+    },
+    "quantity": 4,
+    "discount": 0.15,
+    "date": "2024-01-23T15:42:26Z",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T908",
+    "customer_id": "C012",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "2024/01/27 06:55:38",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T903",
+    "customer_id": "C003",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 2,
+    "discount": 0.15,
+    "date": "2024-01-27",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T822",
+    "customer_id": "C104",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 3,
+    "discount": 0.05,
+    "date": "2024/01/16 16:45:28",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T906",
+    "customer_id": "C102",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 4,
+    "discount": 0.1,
+    "date": "2024/01/06 23:07:38",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T878",
+    "customer_id": "C066",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "01-01-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T929",
+    "customer_id": "C136",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 7,
+    "discount": 0.2,
+    "date": "2024/01/29 15:17:10",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T863",
+    "customer_id": "C025",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 1,
+    "discount": 0.2,
+    "date": "02-11-2024",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T829",
+    "customer_id": "C070",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 7,
+    "discount": null,
+    "date": "2024-01-01T10:35:33Z",
+    "region": "Central"
+  },
+  {
+    "transaction_id": "T849",
+    "customer_id": "C009",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 5,
+    "discount": 0.15,
+    "date": "2024/01/07 15:09:54",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T861",
+    "customer_id": "C107",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 6,
+    "discount": 0.2,
+    "date": "02-13-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T806",
+    "customer_id": "C012",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 7,
+    "discount": 0.2,
+    "date": "01-04-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T157",
+    "customer_id": "C082",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 5,
+    "discount": null,
+    "date": "2023-11-30",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T118",
+    "customer_id": "C089",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 4,
+    "discount": 0.1,
+    "date": "2023/08/16 15:13:29",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T936",
+    "customer_id": "C013",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 7,
+    "discount": 0.2,
+    "date": "2024/02/04 06:01:25",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T867",
+    "customer_id": "C060",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 3,
+    "discount": 0,
+    "date": "2024-01-28",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T821",
+    "customer_id": "C005",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 2,
+    "discount": null,
+    "date": "2024-01-10",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T923",
+    "customer_id": "C086",
+    "product": {
+      "id": "P01",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99
+    },
+    "quantity": 6,
+    "discount": null,
+    "date": "2024-02-24",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T927",
+    "customer_id": "C091",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 4,
+    "discount": 0,
+    "date": "2024-01-10",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T804",
+    "customer_id": "C025",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 5,
+    "discount": 0.05,
+    "date": "01-11-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T838",
+    "customer_id": "C088",
+    "product": {
+      "id": "P09",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 449.0
+    },
+    "quantity": 2,
+    "discount": 0.15,
+    "date": "2024-02-19",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T895",
+    "customer_id": "C102",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 5,
+    "discount": 0,
+    "date": "01-22-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T898",
+    "customer_id": "C002",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 2,
+    "discount": 0,
+    "date": "01-19-2024",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T830",
+    "customer_id": "C114",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "2024/02/25 14:47:21",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T840",
+    "customer_id": "C146",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 6,
+    "discount": 0.1,
+    "date": "2024-02-02",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T831",
+    "customer_id": "C145",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 6,
+    "discount": 0.2,
+    "date": "01-01-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T856",
+    "customer_id": "C117",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 2,
+    "discount": 0.2,
+    "date": "2024/01/31 03:08:34",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T939",
+    "customer_id": "C007",
+    "product": {
+      "id": "P04",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 49.9
+    },
+    "quantity": 5,
+    "discount": 0.15,
+    "date": "2024/02/03 00:19:38",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T813",
+    "customer_id": "C085",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 8,
+    "discount": null,
+    "date": "2024-01-28",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T862",
+    "customer_id": "C094",
+    "product": {
+      "id": "P03",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 299.5
+    },
+    "quantity": 3,
+    "discount": 0.05,
+    "date": "01-15-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T924",
+    "customer_id": "C069",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 3,
+    "discount": 0.2,
+    "date": "2024-01-15",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T874",
+    "customer_id": "C100",
+    "product": {
+      "id": "P10",
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 119.5
+    },
+    "quantity": 6,
+    "discount": 0.2,
+    "date": "2024-02-25",
+    "region": "North"
+  },
+  {
+    "transaction_id": "T937",
+    "customer_id": "C074",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 1,
+    "discount": null,
+    "date": "01-26-2024",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T850",
+    "customer_id": "C003",
+    "product": {
+      "id": "P05",
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 189.0
+    },
+    "quantity": 3,
+    "discount": null,
+    "date": "02-14-2024",
+    "region": "South"
+  },
+  {
+    "transaction_id": "T839",
+    "customer_id": "C004",
+    "product": {
+      "id": "P07",
+      "name": "Webcam",
+      "category": "Accessories",
+      "price": 79.0
+    },
+    "quantity": 8,
+    "discount": 0.1,
+    "date": "2024/01/14 07:23:30",
+    "region": "West"
+  },
+  {
+    "transaction_id": "T946",
+    "customer_id": "C036",
+    "product": {
+      "id": "P02",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    "quantity": 2,
+    "discount": 0.15,
+    "date": "2024-02-13",
+    "region": "East"
+  },
+  {
+    "transaction_id": "T803",
+    "customer_id": "C092",
+    "product": {
+      "id": "P06",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "price": 149.0
+    },
+    "quantity": 2,
+    "discount": 0.05,
+    "date": "2024-01-28T10:48:27Z",
+    "region": "North"
+  }
+]
