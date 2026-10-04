@@ -243,14 +243,14 @@ The Python sales pipeline writes stage summaries and validation messages to `log
 
 ## Challenges faced
 
-1) Synthetic data quality: The first generated dataset was skewed, which I found during exploratory data analysis. I regenerated the batches from the supplied sample records so the distribution across regions, products and customers was more realistic. I also added a second incremental batch to test inserts, updates and late-arriving transactions.
-2) Choice of landing store: I first considered a medallion design: land the data in ADLS Gen2, standardize it to support incremental loads, then load a gold layer in SQL Server using SSIS. Since all sources are small, structured JSON files, I moved away from that approach and used SQLite for the Python pipeline to keep execution and cost lightweight. A daily publish then loads SQL Server as the shared reporting store.
-3) SSIS setup: SSIS has no native JSON source, so I built the source with a C# Script Component. Changes to its script and output metadata required regenerating the compiled assembly in Visual Studio. I also had to handle machine-specific settings (source file path, checkpoint path, Windows authentication) and make sure rejected customer rows flow to `dbo.ErrorLog` with a run ID.
-4) Power BI connectivity: I used Power BI Desktop standalone, so the data is imported into the PBIX. In production, I would use a composite model: Import mode for dimensions and DirectQuery for the sales fact table.
+1. Synthetic data quality: The first generated dataset was skewed, which I found during exploratory data analysis. I regenerated the batches from the supplied sample records so the distribution across regions, products and customers was more realistic. I also added a second incremental batch to test inserts, updates and late-arriving transactions.
+2. Choice of landing store: I first considered a medallion design: land the data in ADLS Gen2, standardize it to support incremental loads, then load a gold layer in SQL Server using SSIS. Since all sources are small, structured JSON files, I moved away from that approach and used SQLite for the Python pipeline to keep execution and cost lightweight. A daily publish then loads SQL Server as the shared reporting store.
+3. SSIS setup: SSIS has no native JSON source, so I built the source with a C# Script Component. Changes to its script and output metadata required regenerating the compiled assembly in Visual Studio. I also had to handle machine-specific settings (source file path, checkpoint path, Windows authentication) and make sure rejected customer rows flow to dbo.ErrorLog with a run ID.
+4. Power BI connectivity: I used Power BI Desktop standalone, so the data is imported into the PBIX. In production, I would use a composite model: Import mode for dimensions and DirectQuery for the sales fact table.
 
 ## Production improvements
 
 1) Current design is a daily full snapshot load. This is expensive and should be replaced with change tracking or CDC when the sales volume grow.
 2) No secrets and environment-specific paths outside source control are considered. In the enterprise infosec standards and routine scans - this will be a potential vulnerability. Need to scale this before deploying to production as per enteprise standards.
 3) Use SQL Server Agent or enterprise orchestrator to schedule the SSIS package and integrate the enteprise logging/ observability with monitoring and failure alerts.
-4) In Power BI report, only Customer Dimension is imported. Given the project scope - 'PRODUCT' data is not imported. This needs to be scaled. 
+4) In Power BI report, only Customer Dimension is imported. Given the project scope - 'PRODUCT' data is not imported. This needs to be scaled.
